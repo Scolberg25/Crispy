@@ -8,4 +8,4 @@ npm install
 node .
 ```
 
-Open the `http://localhost:3000` file in a browser or use a service like XAMPP or MAMP to host.
+Open the `http://localhost:3000` url in a browser.
