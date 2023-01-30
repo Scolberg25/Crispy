@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Crispy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+    <link rel="icon" href="https://iili.io/H05VEMJ.png">
+    <link rel="apple-touch-icon" href="https://iili.io/H05VEMJ.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background-image: linear-gradient(to right, #8360c3, #2ebf91);">
+<div class="container pt-3">
+  <br>
+  <div class="jumbotron">
+  <img src="https://iili.io/H0jAiq7.png" style="display: inline; max-width: 10%; float: right; margin-bottom: 30px;">
+    <ul id="form-control"></ul>
+    <form id="form">
+      <div class="form-group">
+      <input type="text" class="form-control" id="input" aria-describedby="messageH" placeholder="Type Your Message">
+      <br>
+      <button type="submit" class="btn btn-primary" id="arrow" style="
+        background-image: url(https://iili.io/H04NHtS.jpg);background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border: 3px black solid;
+        border-radius: 12px;"><span style="opacity: 0.0;font-size: 30px;">Send</span></button>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+    const socket = io();
+
+    const username = window.prompt("What's Your Name?", "Anonymous");
+    console.log(username);
+    socket.emit('new user', username);
+
+    const messageForm = document.getElementById('form');
+    const textInput = document.getElementById('input');
+
+    messageForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (textInput.value) {socket.emit('new message', textInput.value);
+            textInput.value = '';
+        }
+    });
+
+    socket.on('send message', (data) => {
+        const messageList = document.getElementById('form-control');
+        const chatItem = document.createElement('li');
+        chatItem.textContent = data.user + ': ' + data.message;
+        messageList.appendChild(chatItem);
+        window.scrollTo(0, document.body.scrollHeight);
+    });
+</script>
+
+</body>
+
+</html>

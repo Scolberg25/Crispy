@@ -1,0 +1,24 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#arrow {
+  background-image: url(https://images.unsplash.com/photo-1596995804697-27d11d43652e);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 3px black solid;
+  border-radius: 12px;
+}
+
+@keyframes arrowDown {
+    0% {}
+    20% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(600px);
+    }
+}

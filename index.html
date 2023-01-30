@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Crispy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="icon" href="https://iili.io/H05VEMJ.png">
+    <link rel="apple-touch-icon" href="https://iili.io/H05VEMJ.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+
+<body style="background-image: linear-gradient(to right, #8360c3, #2ebf91);">
+<div class="container pt-3">
+<br>
+  <div class="jumbotron">
+  <img src="https://iili.io/H0jAiq7.png" style="display: inline; max-width: 10%; float: right; margin-bottom: 30px;">
+    <h1 style="text-align: center">Crispy is currently in private beta.</h1>
+    <form id="form">
+      <div class="form-group">
+      <input type="text" class="form-control" id="input" placeholder="Please enter a key to continue" type="password">
+      <br>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+    <a href="rules">Learn about how crispy works</a>
+  </div>
+</div>
+
+<script>
+  const messageForm = document.getElementById('form');
+  const textInput = document.getElementById('input');
+  let key="crispyisking";
+  
+  messageForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (textInput.value == key) {
+            textInput.value = '';
+            window.location.replace("chat");
+        }
+    });
+</script>
+</body>
+</html>
