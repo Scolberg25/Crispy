@@ -4,7 +4,6 @@ const server = require('http').createServer(app)
 const io = require('socket.io')(server);
 const PORT = process.env.PORT || 3000;
 const fs = require('fs');
-const ngrok = require('ngrok');
 
 function write(message) {
    fs.appendFile('log.txt', message,  function (err) {
