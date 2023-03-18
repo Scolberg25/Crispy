@@ -1,0 +1,15 @@
+{
+    "name": "Crispy Messenger",
+    "short_name": "Crispy",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#fdfdfd",
+    "theme_color": "#8360c3",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "https://iili.io/H05VEMJ.png",
+            "type": "image/png"
+        }
+    ]
+}
