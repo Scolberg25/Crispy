@@ -4,6 +4,7 @@ const server = require('http').createServer(app)
 const io = require('socket.io')(server);
 const PORT = process.env.PORT || 3000;
 const fs = require('fs');
+const path = require("path");
 
 function write(message) {
    fs.appendFile('log.txt', message,  function (err) {
@@ -11,6 +12,9 @@ function write(message) {
       console.log('Saved!');
 });
 }
+
+app.use(express.static('public'));
+app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
 
 app.get('/', (req, res) => {
    res.sendFile(__dirname + '/index.html');

@@ -1,0 +1,139 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 979px) {
+  #imageCrispy {
+    display: none;
+  }
+}
+
+.alert-success {
+  display: none;
+}
+
+#arrow {
+  background-image: url(https://iili.io/H04NHtS.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 3px black solid;
+  background-size: cover;
+  border-radius: 12px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.from-bot {
+  align-self: center;
+  background-color: #e5e5ea;
+  color: black;
+}
+
+li {
+  list-style: none;
+  padding-bottom: 3px;
+  border-radius: 1.15rem;
+  line-height: 1.25;
+  max-width: 75%;
+  padding: 0.5rem .875rem;
+  position: relative;
+  word-wrap: break-word;
+}
+
+li::before, li::after {
+  bottom: -0.1rem;
+  content: "";
+  height: 1rem;
+  position: absolute;
+}
+
+li.from-me {
+  align-self: flex-end;
+  background-color: #248bf5;
+  color: #fff;
+}
+
+li.from-me::before {
+  border-bottom-left-radius: 0.8rem 0.7rem;
+  border-right: 1rem solid #248bf5;
+  right: -0.35rem;
+  transform: translate(0, -0.1rem);
+}
+
+li.from-me::after {
+  background-color: #e9ecef;
+  border-bottom-left-radius: 0.5rem;
+  right: -40px;
+  transform: translate(-30px, -2px);
+  width: 10px;
+}
+
+li[class^="from-"] {
+  margin: 0.5rem 0;
+  width: fit-content;
+}
+
+li.from-me~p.from-me {
+  margin: 0.25rem 0 0;
+}
+
+li.from-me~p.from-me:not(:last-child) {
+  margin: 0.25rem 0 0;
+}
+
+li.from-me~p.from-me:last-child {
+  margin-bottom: 0.5rem;
+}
+
+li.from-them {
+  align-items: flex-start;
+  background-color: #e5e5ea;
+  color: #000;
+}
+
+li.from-them:before {
+  border-bottom-right-radius: 0.8rem 0.7rem;
+  border-left: 1rem solid #e5e5ea;
+  left: -0.35rem;
+  transform: translate(0, -0.1rem);
+}
+
+li.from-them::after {
+  background-color: #e9ecef;
+  border-bottom-right-radius: 0.5rem;
+  left: 20px;
+  transform: translate(-30px, -2px);
+  width: 10px;
+}
+
+.margin-b_none {
+  margin-bottom: 0 !important;
+}
+
+.margin-b_one {
+  margin-bottom: 1rem !important;
+}
+
+.margin-t_one {
+  margin-top: 1rem !important;
+}
+
+@keyframes arrowDown {
+    0% {}
+    20% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(600px);
+    }
+}
