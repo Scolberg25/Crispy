@@ -37,7 +37,7 @@
   
   messageForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        if (textInput.value == key) {
+        if (textInput.value.toLowerCase() == key) {
             textInput.value = '';
             window.location.replace("chat");
         }
