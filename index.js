@@ -28,6 +28,11 @@ app.get('/rules', (req, res) => {
    res.sendFile(__dirname + '/rules.html');
 });
 
+app.get('*', function(req, res){
+   res.status(404).send('404 error!');
+   res.status(500).send('500 error!');
+});
+
 server.listen(PORT, () => {
    console.log('Server is running on port: ' + PORT);
 });
