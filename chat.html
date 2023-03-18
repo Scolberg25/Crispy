@@ -29,11 +29,29 @@
 <script>
     const socket = io();
 
-    while (!username) {
-      var username = prompt("What's Your Name?");
-    };
+    function start() {
+      let usernameCookie = document.cookie;
+      if (usernameCookie == "") {
+        while (!username) {
+          var username = prompt("What's Your Name?");
+        };
+        return(username);
+      } else {
+        var answer = window.confirm("Your current username is " + usernameCookie + ", do you want to change your username?");
+          if (answer) {
+            while (!username) {
+              var username = prompt("What's Your Name?");
+            };
+            return(username);
+          }
+          else {
+            return(usernameCookie);
+        }
+      }
+    }
 
-    //const username = window.prompt("What's Your Name?", "Anonymous");
+    let username = start();
+    document.cookie = username;
     console.log(username);
     socket.emit('new user', username);
 
