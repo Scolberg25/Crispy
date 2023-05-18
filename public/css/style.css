@@ -137,3 +137,10 @@ li.from-them::after {
         transform: translateY(600px);
     }
 }
+
+#usersonline {
+  position: absolute;
+  max-width: 10vw;
+  left: 10px;
+  top: 10px;
+}
