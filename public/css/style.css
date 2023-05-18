@@ -150,3 +150,7 @@ li.from-them::after {
 #usersonline ul li {
   list-style: circle;
 }
+
+#seeonlineusers {
+  display: inline;
+}
