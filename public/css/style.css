@@ -143,4 +143,10 @@ li.from-them::after {
   max-width: 10vw;
   left: 10px;
   top: 10px;
+  display: none;
+  border: black solid 2px;
+}
+
+#usersonline ul li {
+  list-style: circle;
 }
