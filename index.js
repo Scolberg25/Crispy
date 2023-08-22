@@ -6,32 +6,31 @@ const PORT = process.env.PORT || 3000;
 const fs = require('fs');
 const path = require("path");
 
-function write(message) {
-   fs.appendFile('log.txt', message,  function (err) {
-   if (err) throw err;
-      console.log('Saved!');
-});
-}
-
 app.use(express.static('public'));
 app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
 
 app.get('/', (req, res) => {
-   res.sendFile(__dirname + '/index.html');
+   res.sendFile(__dirname + '/indexes/index.html');
+});
+
+app.get('/directory', (req, res) => {
+   res.sendFile(__dirname + '/indexes/directory.html');
 });
 
 app.get('/chat', (req, res) => {
-   res.sendFile(__dirname + '/chat.html');
+   res.sendFile(__dirname + '/chat/public/public1.html');
 });
 
-app.get('/rules', (req, res) => {
-   res.sendFile(__dirname + '/rules.html');
+app.get('/learnmore', (req, res) => {
+   res.sendFile(__dirname + '/indexes/rules.html');
 });
 
+/*
 app.get('*', function(req, res){
    res.status(404).send('404 error!');
    res.status(500).send('500 error!');
 });
+*/
 
 server.listen(PORT, () => {
    console.log('Server is running on port: ' + PORT);
@@ -39,8 +38,8 @@ server.listen(PORT, () => {
 
 io.on('connection', (socket) => {
    socket.on('disconnect', () => {
-      io.emit('send message', {message: `${socket.username} has left the chat`, user:"Welcome Bot"})
-   }); 
+      io.emit('send message', {message: `${socket.username} has left the chat`, user: "Welcome Bot"});
+   });
 
    socket.on('new message', (msg) => {
       console.log(msg)
@@ -50,5 +49,10 @@ io.on('connection', (socket) => {
    socket.on('new user', (usr) => {
       socket.username = usr;
       io.emit('send message', {message: `${socket.username} has joined the chat`, user:"Welcome Bot"})
+   });
+
+   socket.on('password', (pswd) => {
+      socket.password = pswd;
+
    });
 });

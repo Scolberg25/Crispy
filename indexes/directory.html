@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crispy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="icon" href="https://iili.io/H05VEMJ.png">
+    <link rel="apple-touch-icon" href="https://iili.io/H05VEMJ.png">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta name="apple-mobile-web-app-status-bar" content="#2ebf91" />
+    <meta name="theme-color" content="#8360c3" />
+</head>
+
+<body style="background-image: linear-gradient(to right, #8360c3, #2ebf91); overflow: hidden;">
+    <div id="directory">
+        <h1 style="text-align: center; font-size: 3rem; margin: 0.8rem;">Public Rooms</h1>
+        <button type="button" onclick="passwordPrompt()" id="PR_button">Find a private room</button>
+        <div class="directory_boxes">
+            <p class="directory_boxes_text">Public Room 1</p>
+        </div>
+        <div class="directory_boxes">
+            <p class="directory_boxes_text">Public Room 2</p>
+        </div>
+        <div class="directory_boxes">
+            <p class="directory_boxes_text">Public Room 3</p>
+        </div>
+    </div>
+</body>
+
+<script>
+    const socket = io();
+
+    function passwordPrompt() {
+        var password = prompt("Enter room code");
+        if (password) {
+            socket.emit('password', username);
+        } else {
+            return;
+        };
+    }
+
+    socket.on('send message', (data) => {
+        const messageList = document.getElementById('form-control');
+        const chatItem = document.createElement('li');
+        chatItem.textContent = data.user + ': ' + data.message;
+        console.log(data.user + ': ' + data.message);
+        console.log(data.user)
+        if (data.user == "Welcome Bot") {
+            chatItem.classList.add("from-bot");
+        } else if (data.user == username) {
+            chatItem.classList.add("from-me");
+        } else {
+            chatItem.classList.add("from-them");
+        }
+        messageList.appendChild(chatItem);
+        window.scrollTo(0, document.body.scrollHeight);
+    });
+</script>
+
+</html>

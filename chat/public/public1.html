@@ -55,7 +55,6 @@
 
     let username = start();
     document.cookie = username;
-    console.log(username);
     socket.emit('new user', username);
 
     const messageForm = document.getElementById('form');
