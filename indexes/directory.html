@@ -7,7 +7,8 @@
     <script src="/socket.io/socket.io.js"></script>
     <link rel="icon" href="https://iili.io/H05VEMJ.png">
     <link rel="apple-touch-icon" href="https://iili.io/H05VEMJ.png">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/base.css">
+    <link rel="stylesheet" type="text/css" href="/css/directory.css">
     <meta name="apple-mobile-web-app-status-bar" content="#2ebf91" />
     <meta name="theme-color" content="#8360c3" />
 </head>
@@ -16,7 +17,7 @@
     <div id="directory">
         <h1 style="text-align: center; font-size: 3rem; margin: 0.8rem;">Public Rooms</h1>
         <button type="button" onclick="passwordPrompt()" id="PR_button">Find a private room</button>
-        <div class="directory_boxes">
+        <div class="directory_boxes" onclick="window.location.replace(`./chat/public/1`);">
             <p class="directory_boxes_text">Public Room 1</p>
         </div>
         <div class="directory_boxes">

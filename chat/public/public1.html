@@ -8,8 +8,8 @@
     <link rel="icon" href="https://iili.io/H05VEMJ.png">
     <link rel="apple-touch-icon" href="https://iili.io/H05VEMJ.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" type="text/css" href="/css/base.css">
+    <link rel="stylesheet" type="text/css" href="/css/chat.css">
     <meta name="apple-mobile-web-app-status-bar" content="#2ebf91" />
     <meta name="theme-color" content="#8360c3" />
 </head>
@@ -17,6 +17,7 @@
 <body style="background-image: linear-gradient(to right, #8360c3, #2ebf91);">
 <div class="container">
   <br>
+  <h1 id="roomLabel">Public Room 1</h1>
   <div class="jumbotron">
   <img src="https://iili.io/H0jAiq7.png" id="imageCrispy" style="display: inline; float: right; margin-bottom: 30px; margin-left: 30px;">
     <ul id="form-control"></ul>
@@ -24,7 +25,7 @@
       <div class="form-group">
       <input type="text" class="form-control" id="input" placeholder="Type Your Message">
       <br>
-      <button type="submit" class="btn btn-primary" id="arrow"><span style="opacity: 0.0;font-size: 30px;">Send</span></button>
+      <button type="submit" class="btn btn-primary" id="arrow"><span style="font-size: 30px;">Send</span></button>
       </div>
     </form>
   </div>
@@ -72,7 +73,6 @@
         const chatItem = document.createElement('li');
         chatItem.textContent = data.user + ': ' + data.message;
         console.log(data.user + ': ' + data.message);
-        console.log(data.user)
         if (data.user == "Welcome Bot") {
           chatItem.classList.add("from-bot");
         } else if (data.user == username) {

@@ -18,19 +18,29 @@ app.get('/directory', (req, res) => {
 });
 
 app.get('/chat', (req, res) => {
-   res.sendFile(__dirname + '/chat/public/public1.html');
+   res.sendFile(__dirname + '/error/common404.html');
+});
+
+app.get('/chat/public', (req, res) => {
+   res.sendFile(__dirname + '/error/common404.html');
+});
+
+app.get('/chat/private', (req, res) => {
+   res.sendFile(__dirname + '/error/common404.html');
 });
 
 app.get('/learnmore', (req, res) => {
    res.sendFile(__dirname + '/indexes/rules.html');
 });
 
-/*
+app.get('/chat/public/1', (req, res) => {
+   res.sendFile(__dirname + '/chat/public/public1.html');
+});
+
 app.get('*', function(req, res){
    res.status(404).send('404 error!');
    res.status(500).send('500 error!');
 });
-*/
 
 server.listen(PORT, () => {
    console.log('Server is running on port: ' + PORT);
